@@ -203,29 +203,36 @@
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 5 - [October 10, 2026, 10:00 PM]
+**What I did**:Wrote the documentation in `MY_WORK.md`
 
 **Details**:
+- Ran the full program and saved the output in a text file
+- Found a process that was re-queued and copied its lines for Question 2
+- Wrote the reflection and the technical answers
+- Commit: `Docs: Completed development log, reflection and technical answers`
 
-**Challenges**:
+**Challenges**: Question 3 (thread lifecycle) was confusing, because the main thread and the process thread are in different states at the same time.
 
-**Solution**:
+**Solution**:I read the lecture slide about thread states again and followed P1 line by line in the code.
 
-**Time spent**:
+**Time spent**:30 minutes
 
 ---
 
-### Entry 6 - [Optional - Date and Time]
-**What I did**:
+### Entry 6 - [October 10, 2026, 10:30 PM]
+**What I did**:Recorded and uploaded the demo video
 
-**Details**:
+**Details**:- Recorded my screen while running the program in VS Code
+- Uploaded the video to Google Drive and set it to "Anyone with the link"
+- Added the link to `MY_WORK.md`
+- Commit: `Docs: Added demo video link`
 
-**Challenges**:
+**Challenges**:The full program run takes more than one minute, so the video was getting too long.
 
-**Solution**:
+**Solution**: I started the run, explained the output while it was running, and then showed the final table.
 
-**Time spent**:
+**Time spent**:30 minuts
 
 ---
 
