@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [Osamah Salah BinSaeedu] |
+| **Student ID** | [445052781] |
+| **University Email** | 445052781@std.psau.edu.sa |
+| **GitHub Username** | [OsamahBinSeaadu] |
+| **Repository Link** | [https://github.com/OsamahBinSeaadu/OS-Assignment1-Starter-Osamah-Salah-BinSaeedu.git] |
  
 ---
 
@@ -129,16 +129,22 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 10, 2026, 4:30 PM]
+**What I did**:  Set up GitHub, forked the starter repository and set my student ID
 
 **Details**:
+- Signed in to GitHub with my university email
+- Forked `makopt/OS-Assignment1-Starter-481` and renamed it to `OS-Assignment1-Osamah-Salah-BinSaeedu`
+- Checked that the repository is Public
+- Cloned it in VS Code and changed `studentID` to my ID
+- Ran the program one time to see the output
+- Commit: `Set my student ID: [445052781]`
 
-**Challenges**:
+**Challenges**: The colors in the output looked strange (`←[36m`) when I ran it the first time.
 
-**Solution**:
+**Solution**: I ran the program from the VS Code terminal and the colors showed correctly.
 
-**Time spent**:
+**Time spent**:40 minutes
 
 ---
 
