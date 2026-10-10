@@ -240,13 +240,13 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: About 3.5 hours
 
-**Most challenging part**:
+**Most challenging part**:Feature 3, because I had to think about when a process starts and stops waiting.
 
-**Most interesting learning**:
+**Most interesting learning**: `join()` makes the main thread wait, so only one process runs at a time, like a real single CPU.
 
-**What I would do differently next time**:
+**What I would do differently next time**:Save my program output from the start, so writing the answers is faster.
 
 ---
 
@@ -266,7 +266,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+I learned that a thread is like a small worker that runs code inside the same program. In our code, the `Process` class implements `Runnable`, and `new Thread(process)` in `addProcessToQueue()` makes a thread for it. I learned that we must call `start()` and not `run()`, because `start()` creates a new thread and then calls `run()` inside it. I also learned that `join()` makes the main thread wait until the process thread finishes its time quantum, so only one process uses the "CPU" at a time. `Thread.sleep()` is used inside `run()` to simulate the process doing work for some milliseconds. One thing that surprised me is that a Java thread can be started only one time, so the code creates a new `Thread` every time a process goes back to the ready queue.
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -274,7 +274,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+The most challenging part was Feature 3, the waiting time tracking. It was hard because a process can wait in the ready queue many times, not only one time. At first I thought waiting time is only the time from creation until the first run, but that is wrong in Round-Robin. A process waits again every time it is re-queued after its time quantum. So I needed to know the exact moment the process enters the queue and the exact moment it starts running. I also had to decide where to put this code, because some of it is in the `Process` class and some is in the scheduler loop.
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -282,7 +282,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+First, I read the README again and drew the flow of one process on paper: enter queue, wait, run, re-queue. Then I saw that `addProcessToQueue()` is called every time a process enters the queue, so it was the best place to save the time with `markReady()`. I saw that `currentThread.start()` is the moment the process gets the CPU, so I called `startRunning()` just before it to add the waiting time. I tested after each small change by running the program and checking the numbers. For example, I checked that P1 has a small waiting time at first and bigger waiting time after it was re-queued. For the table, I fixed the column widths in `String.format` until the lines were aligned.
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -290,19 +290,19 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+Multithreading is used in many apps we use every day. In a web browser, one thread shows the page while another thread downloads data, so the page does not freeze. In a mobile photo app, each thread can make a thumbnail for a different image, like the example in our lecture. In a music player, one thread plays the music while the main thread handles the buttons. In a game, one thread can handle the graphics and another one handles the sound or the network. In our assignment, each process had its own thread, and the scheduler gave each one a time quantum, which is the same idea an OS uses to share the CPU between these apps.
 
 ### Optional: What would you like to learn more about?
 
-[Any topics related to threading or operating systems that you're curious about?]
+I want to learn more about synchronization (locks and semaphores) and what happens when two threads change the same data.
 
 ### Optional: How confident do you feel about multithreading concepts now?
 
-[Beginner / Intermediate / Confident. What do you understand well? What needs more practice?]
+Intermediate. I understand `start()`, `join()` and `sleep()` well. I need more practice with threads that run at the same time and share data.
 
 ### Optional: Feedback on the assignment
 
-[Any comments? Was it helpful? Too easy or hard? Suggestions?]
+The assignment was helpful because I could see Round-Robin working step by step in the output.
 
 ---
 
