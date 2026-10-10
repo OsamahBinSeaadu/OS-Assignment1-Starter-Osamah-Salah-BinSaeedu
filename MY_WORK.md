@@ -185,16 +185,21 @@
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 4 - [October 10, 2026, 9:00 PM]
+**What I did**:Feature 3 - Waiting Time Tracking and summary table
 
 **Details**:
+- Added `creationTime`, `lastReadyTime` and `waitingTime` fields to `Process`
+- `markReady()` saves `System.currentTimeMillis()` when the process enters the ready queue
+- `startRunning()` adds `now - lastReadyTime` to `waitingTime` before the process runs
+- Added a static `allProcesses` list and `printSummaryTable()` that prints Burst, Waiting and Turnaround time
+- Commit: `Feature 3: Added waiting time tracking and summary table`
 
-**Challenges**:
+**Challenges**:The columns of the table were not aligned because some titles were longer than the column width.
 
-**Solution**:
+**Solution**: I changed the widths in `String.format` (for example `%-17s` and `%-20s`) so the lines match.
 
-**Time spent**:
+**Time spent**:1 hour 5 minutes
 
 ---
 
