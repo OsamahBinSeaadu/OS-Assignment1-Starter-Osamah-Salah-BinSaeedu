@@ -166,16 +166,22 @@
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [October 10, 2026, 8:00 PM]
+**What I did**: Feature 2 - Context Switch Counter
 
 **Details**:
+- Added `static int contextSwitches = 0;` in `SchedulerSimulation`
+- Added `contextSwitches++` just before `currentThread.start()` in the scheduler loop
+- Printed `Total context switches: X` at the end
+- Commit: `Feature 2: Implemented context switch counter`
 
-**Challenges**:
 
-**Solution**:
+**Challenges**: I was not sure where to put the counter: inside `run()` or in the scheduler loop.
 
-**Time spent**:
+**Solution**: A context switch happens when the scheduler gives the CPU to a process, so I put it in the loop before `start()`. Then I counted the "Ready Queue" boxes in the output and the number was the same.
+
+
+**Time spent**:40 minutes
 
 ---
 
