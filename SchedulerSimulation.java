@@ -29,13 +29,18 @@ class Process implements Runnable {
     private int burstTime; // Total time the process requires to complete (in milliseconds)
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
+    // FEATURE 1: priority of the process (1 = lowest, 10 = highest)
+    // Display/tracking only - it does NOT change the Round-Robin (FIFO) order
+    private int priority;
 
     // Constructor to initialize the process with name, burst time, and time quantum
-    public Process(String name, int burstTime, int timeQuantum) {
+    // FEATURE 1: the constructor now also receives the priority
+    public Process(String name, int burstTime, int timeQuantum, int priority) {
         this.name = name;
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
+        this.priority = priority;
     }
 
     // This method will be called when the thread for this process is started
@@ -133,6 +138,11 @@ class Process implements Runnable {
         return burstTime;
     }
 
+     // FEATURE 1: getter for the priority
+    public int getPriority() {
+        return priority;
+    }
+
     public int getRemainingTime() {
         return remainingTime;
     }
@@ -196,8 +206,11 @@ public class SchedulerSimulation {
             // Random burst time for each process between timeQuantum/2 and 3*timeQuantum
             int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
             
+              // FEATURE 1: random priority between 1 and 10 (10 = highest)
+            int priority = 1 + random.nextInt(10);
+            
             // Create a new process object with a unique name, burst time, and the defined time quantum
-            Process process = new Process("P" + i, burstTime, timeQuantum);
+            Process process = new Process("P" + i, burstTime, timeQuantum,priority);
             
             // Add the process to the ready queue and the map
             addProcessToQueue(process, processQueue, processMap);
@@ -291,8 +304,9 @@ public class SchedulerSimulation {
         processMap.put(thread, process);
         
         // Print a message indicating the process has entered the ready queue
-        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
-                          Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
+ System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
+                          Colors.RESET + " (Priority: " + process.getPriority() + ")" + // FEATURE 1: show priority
+                          Colors.BLUE + " enters the ready queue" + Colors.RESET + 
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
                           Colors.RESET);
     }
