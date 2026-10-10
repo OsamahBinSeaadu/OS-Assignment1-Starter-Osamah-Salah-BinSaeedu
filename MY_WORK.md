@@ -148,16 +148,21 @@
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 10, 2026, 7:00 PM]
+**What I did**:Feature 1 - Process Priority
 
 **Details**:
+- Added `private int priority` to the `Process` class
+- Added `priority` to the constructor and a `getPriority()` method
+- In `main`, made a random priority with `1 + random.nextInt(10)` (1 to 10)
+- Changed the message in `addProcessToQueue()` to show `P1 (Priority: 7) enters the ready queue`
+- Commit: `Feature 1: Added priority field to Process class`
 
-**Challenges**:
+**Challenges**: After I added the new `random.nextInt(10)`, the burst times of my processes changed from my first run.
 
-**Solution**:
+**Solution**: I understood that all values come from the same `Random` object with my ID as seed, so one more call changes the next numbers. This is normal, and the output is still the same every time I run it.
 
-**Time spent**:
+**Time spent**: 40 minutes
 
 ---
 
