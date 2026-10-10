@@ -154,6 +154,10 @@ class Process implements Runnable {
 }
 
 public class SchedulerSimulation {
+    // FEATURE 2: static counter for context switches
+    // (one context switch = the CPU switches to run a process)
+    static int contextSwitches = 0;
+
     public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
         // This makes your output unique to you - DO NOT forget to change this!
@@ -249,6 +253,9 @@ public class SchedulerSimulation {
             System.out.println(Colors.BRIGHT_WHITE + "]" + Colors.RESET);
             System.out.println(Colors.BOLD + Colors.MAGENTA + "└" + "─".repeat(79) + Colors.RESET + "\n");
             
+            // FEATURE 2: a new process gets the CPU -> count one context switch
+            contextSwitches++;
+
             // Start the thread, which will run the process for one time quantum
             currentThread.start();
             
@@ -289,6 +296,10 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
+
+        // FEATURE 2: print the total number of context switches
+        System.out.println(Colors.BOLD + Colors.BRIGHT_YELLOW + "Total context switches: " + 
+                          contextSwitches + Colors.RESET + "\n");                       
     }
     
     // Method to add a process to the queue and map, while printing a "ready" message
